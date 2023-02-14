@@ -39,3 +39,7 @@ cd frontend
 
 npm start
 
+<h2>AWS<h2>
+Elastic Block Store -> Volumns -> Modify volume
+Network & Security -> Security Groups -> launch-wizard-1 -> inbound rules -> edit inboud rules -> Custom TCP
+
