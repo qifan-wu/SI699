@@ -33,7 +33,7 @@ cd backend
 
 python app.py
 
-<-- !a new console -->
+<!-- a new console -->
 
 cd frontend
 
