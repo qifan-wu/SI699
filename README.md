@@ -1,3 +1,4 @@
+<h2> Instruction on installing environment </h2>
 git clone https://github.com/Dong34/SI699.git
 
 cd SI699
