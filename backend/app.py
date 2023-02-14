@@ -19,4 +19,4 @@ def get_time():
 
 # Running app
 if __name__ == '__main__':
-    app.run(host = '100.27.2.225')
+    app.run()
