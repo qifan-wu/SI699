@@ -43,3 +43,6 @@ npm start
 Elastic Block Store -> Volumns -> Modify volume
 Network & Security -> Security Groups -> launch-wizard-1 -> inbound rules -> edit inboud rules -> Custom TCP
 
+<h2> Log into SQL </h2>
+mysql -u si699 -p
+//then input password
