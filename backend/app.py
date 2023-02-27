@@ -32,8 +32,10 @@ def get_time():
 # Route for receiving input from user
 @app.route("/submit-form", methods=['POST'])
 def get_urls():
-    url = request.form.get("url")
-    print(url, file=sys.stderr)
+    data = request.get_json()
+    print(data, file=sys.stderr)
+    print(data["url"], file=sys.stderr)
+    url = data["url"]
     session["url"] = url
     return jsonify({'url': url})
 
