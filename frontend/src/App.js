@@ -10,9 +10,8 @@ function App() {
         age: 0,
         date: "",
         programming: "",
-        test_label:"",
+        url:"",
     });
-
     // Using useEffect for single rendering
     useEffect(() => {
         // Using fetch to fetch the api from 
@@ -35,16 +34,16 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <h1>SI699 Proj</h1>
-                <h2>hhhhh</h2>
-                
                 {/* Calling a data from setdata for showing */}
                 <p>{data.name}</p>
                 <p>{data.age}</p>
                 <p>{data.date}</p>
                 <p>{data.programming}</p>
+                <FormComponent/>
                 <p>{data.url}</p>
+                
             </header>
-            <FormComponent/>
+            
         </div>
         
     );

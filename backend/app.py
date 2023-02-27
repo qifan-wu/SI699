@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, session
 import datetime
 from predict import predict_label
 
@@ -6,13 +6,13 @@ x = datetime.datetime.now()
 
 # Initializing flask app
 app = Flask(__name__)
+app.secret_key = 'si699'
 
 OutputInfo = {
     "name": "geek",
     "age": "22",
     "date": x,
     "programming": "python",
-    "url":""
 }
 
 # Route for seeing a data
@@ -25,15 +25,15 @@ def get_time():
         "Age": OutputInfo["age"],
         "Date": OutputInfo["date"], 
         "programming": OutputInfo["programming"],
-        "url": OutputInfo["url"],
+        "url": session.get("url")
         }
 
 # Route for receiving input from user
 @app.route("/submit-form", methods=['POST'])
 def get_urls():
     url = request.form.get("url")
-    OutputInfo["url"] = url
-    return jsonify({'success': True})
+    session["url"] = url
+    return jsonify({'url': url})
 
 # Running app
 if __name__ == "__main__":
