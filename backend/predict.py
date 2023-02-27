@@ -62,7 +62,7 @@ def train_save_model(df):
     model.fit(x_train, y_train)
 
     # Save the trained model to a file using pickle
-    with open('model.pkl', 'wb') as f:
+    with open('cv_model.pkl', 'wb') as f:
         pickle.dump(model, f)
 
     return get_accuracy('LinearSVC', model , x_train, y_train, x_test, y_test)
@@ -70,7 +70,7 @@ def train_save_model(df):
 
 def predict_label(input_data):
     # Load the saved model
-    with open('model.pkl', 'rb') as f:
+    with open('cv_model.pkl', 'rb') as f:
         model = pickle.load(f)
     
     # Make the prediction
