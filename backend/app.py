@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, session
 import datetime
 from predict import predict_label
+import sys
 
 x = datetime.datetime.now()
 
@@ -32,6 +33,7 @@ def get_time():
 @app.route("/submit-form", methods=['POST'])
 def get_urls():
     url = request.form.get("url")
+    print(url, file=sys.stderr)
     session["url"] = url
     return jsonify({'url': url})
 

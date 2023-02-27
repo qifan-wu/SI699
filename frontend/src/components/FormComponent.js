@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function FormComponent() {
+const FormComponent = () => {
     const [formData, setFormData] = useState({});
 
     const handleSubmit = (event) => {
