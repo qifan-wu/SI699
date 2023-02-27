@@ -8,6 +8,8 @@ x = datetime.datetime.now()
 # Initializing flask app
 app = Flask(__name__)
 
+
+
 # Route for seeing a data
 @app.route('/data')
 def get_time():
@@ -20,6 +22,12 @@ def get_time():
         "programming":"python",
         "test_label":test_label,
         }
+
+# Route for receiving input from user
+@app.route("/acceptInput", methods=['POST'])
+def get_urls():
+    #Try this code
+    url = request.form.get('url')
 
 # Running app
 if __name__ == '__main__':
