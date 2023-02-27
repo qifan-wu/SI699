@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import datetime
 from predict import predict_label
 
@@ -29,11 +29,11 @@ def get_time():
         }
 
 # Route for receiving input from user
-@app.route("/acceptInput", methods=['POST'])
+@app.route("/submit-form", methods=['POST'])
 def get_urls():
-    #Try this code
-    #url = request.form.get("url")
-    OutputInfo["url"] = "https://github.com/Dong34/SI699/blob/main/backend/predict.py"
+    url = request.form.get("url")
+    OutputInfo["url"] = url
+    return jsonify({'success': True})
 
 # Running app
 if __name__ == "__main__":

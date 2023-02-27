@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import FormComponent from "./components/FormComponent";
 import "./App.css";
 
 function App() {
@@ -43,7 +44,9 @@ function App() {
                 <p>{data.programming}</p>
                 <p>{data.url}</p>
             </header>
+            <FormComponent></FormComponent>
         </div>
+        
     );
 }
   
