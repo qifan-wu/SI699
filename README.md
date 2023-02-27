@@ -46,3 +46,8 @@ Network & Security -> Security Groups -> launch-wizard-1 -> inbound rules -> edi
 <h2> Log into SQL </h2>
 mysql -u si699 -p
 //then input password
+
+sudo mysql
+CREATE USER 'si699_remote'@'%' IDENTIFIED BY 'SI699_password';
+GRANT ALL PRIVILEGES ON *.* TO 'si699_remote'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES
