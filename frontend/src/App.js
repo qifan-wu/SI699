@@ -44,10 +44,10 @@ function App() {
                 <p>{data.programming}</p>
                 <p>{data.url}</p>
             </header>
-            <FormComponent></FormComponent>
+            <FormComponent/>
         </div>
         
     );
 }
-  
+
 export default App;
