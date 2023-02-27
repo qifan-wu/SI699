@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-  
+
 function App() {
     // usestate for setting a javascript
     // object for storing and using data
@@ -11,7 +11,7 @@ function App() {
         programming: "",
         test_label:"",
     });
-  
+
     // Using useEffect for single rendering
     useEffect(() => {
         // Using fetch to fetch the api from 
@@ -24,12 +24,12 @@ function App() {
                     age: data.Age,
                     date: data.Date,
                     programming: data.programming,
-                    test_label: data.test_label,
+                    url: data.url,
                 });
             })
         );
     }, []);
-  
+
     return (
         <div className="App">
             <header className="App-header">
@@ -41,7 +41,7 @@ function App() {
                 <p>{data.age}</p>
                 <p>{data.date}</p>
                 <p>{data.programming}</p>
-                <p>{data.test_label}</p>
+                <p>{data.url}</p>
             </header>
         </div>
     );
