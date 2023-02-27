@@ -9,6 +9,7 @@ function App() {
         age: 0,
         date: "",
         programming: "",
+        test_label:"",
     });
   
     // Using useEffect for single rendering
@@ -23,6 +24,7 @@ function App() {
                     age: data.Age,
                     date: data.Date,
                     programming: data.programming,
+                    test_label: data.test_label,
                 });
             })
         );
@@ -39,7 +41,7 @@ function App() {
                 <p>{data.age}</p>
                 <p>{data.date}</p>
                 <p>{data.programming}</p>
-  
+                <p>{data.test_label}</p>
             </header>
         </div>
     );
