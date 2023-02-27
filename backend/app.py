@@ -1,5 +1,7 @@
 from flask import Flask
 import datetime
+from predict import predict_label
+
 
 x = datetime.datetime.now()
 
@@ -10,11 +12,13 @@ app = Flask(__name__)
 @app.route('/data')
 def get_time():
     # Returning an api for showing in  reactjs
+    test_label = predict_label('https://github.com/Dong34/SI699/edit/main/backend/app.py')
     return {
         'Name':"geek", 
         "Age":"22",
         "Date":x, 
-        "programming":"python"
+        "programming":"python",
+        "test_label":test_label,
         }
 
 # Running app
