@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify, session
 import datetime
-from predict import predict_label
-import sys
+from predict_label import predict_label
 
 x = datetime.datetime.now()
 
@@ -9,7 +8,7 @@ x = datetime.datetime.now()
 app = Flask(__name__)
 app.secret_key = 'si699'
 
-OutputInfo = {
+test = {
     "name": "geek",
     "age": "22",
     "date": x,
@@ -19,22 +18,21 @@ OutputInfo = {
 # Route for seeing a data
 @app.route("/data")
 def get_time():
-    # Returning an api for showing in  reactjs
-    # test_label = predict_label('https://github.com/Dong34/SI699/edit/main/backend/app.py')
+    url = session.get("url")
+    label = str(predict_label(url))
     return {
-        "Name": OutputInfo["name"], 
-        "Age": OutputInfo["age"],
-        "Date": OutputInfo["date"], 
-        "programming": OutputInfo["programming"],
-        "url": session.get("url")
-        }
+        "Name": test["name"], 
+        "Age": test["age"],
+        "Date": test["date"], 
+        "programming": test["programming"],
+        "url": url,
+        "label": label,
+    }
 
 # Route for receiving input from user
 @app.route("/submit-form", methods=['POST'])
 def get_urls():
     data = request.get_json()
-    print(data, file=sys.stderr)
-    print(data["url"], file=sys.stderr)
     url = data["url"]
     session["url"] = url
     return jsonify({'url': url})

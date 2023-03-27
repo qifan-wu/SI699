@@ -4,8 +4,6 @@ const FormComponent = () => {
     const [formData, setFormData] = useState({});
 
     const handleSubmit = (event) => {
-        console.log("---------before submit");
-        console.log(formData);
         event.preventDefault();
         fetch('/submit-form', {
             method: 'POST',
@@ -14,19 +12,13 @@ const FormComponent = () => {
         })
         .then((response) => {
             response.json();
-            console.log("---------after submit");
-            console.log(formData);
         })
     };
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
         setFormData({ [name]: value });
-        console.log("----------handleInputChange")
-        console.log(formData);
     };
-
-
 
     return (
         <form onSubmit={handleSubmit}>
