@@ -52,7 +52,7 @@ function FeaturedPost(props) {
                         </Typography>
                         <FormComponent/>
                         <button onClick={handleClick}>Show Results</button>
-                        <p>{pageData.label==1?"phishing":"not phishing"}</p>
+                        <p>{pageData.label=="1"?"phishing":"not phishing"}</p>
                     </CardContent>
                     <CardMedia
                     component="img"
