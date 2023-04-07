@@ -12,30 +12,42 @@ import FormComponent from "./FormComponent";
 
 function FeaturedPost2(props) {
     const { post } = props;
-    const [pageData, setPageData] = useState({
-        name: "",
-        age: 0,
-        date: "",
-        programming: "",
-        url:"",
-        label:"",
+    const [formData, setFormData] = useState({
+        newURL: '',
+        selectValue: "1",
     });
-    const handleClick = () => {
-        fetch("/data")
-        .then(res => res.json())
-        .then(
-            (data) => {
-                setPageData({
-                    name: data.Name,
-                    age: data.Age,
-                    date: data.Date,
-                    programming: data.programming,
-                    url: data.url,
-                    label: data.label,
-                });
-            },
-        )
-    }
+    // const [formData, setFormData] = useState({});
+    // const [selectValue, setSelectValue] = useState('');
+
+    const handleTextInputChange = (event) => {
+        setFormData({ ...formData, newURL: event.target.value });
+      };
+    
+    const handleSelectChange = (event) => {
+        setFormData({ ...formData, selectValue: event.target.value });
+    };
+    
+
+    // const handleSelectChange=(event)=>{
+    //     const { name, value } = event.target;
+    //     setFormData({ [name]: value});
+    // };
+
+    const handleClick = (event) => {
+        event.preventDefault();
+        console.log(formData);
+        fetch('/submit-newURL', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+
+        })
+        .then((response) => {
+            response.json();
+        })
+    };
+
+    // console.log(selection);
     return (
         <Grid item xs={12} md={6}>
             <CardActionArea component="a" href="#">
@@ -50,10 +62,25 @@ function FeaturedPost2(props) {
                         <Typography variant="subtitle1" paragraph>
                             {post.description}
                         </Typography>
-                        <FormComponent/>
-                        <button onClick={handleClick}>It is a phishing url</button>
 
-                        <p>{"thanks for submitting"}</p>
+                        <form onSubmit={handleClick}>
+                            <input
+                                type = "text"
+                                name = "newURL"
+                                value = {formData.newURL|| ''}
+                                onChange = {handleTextInputChange}
+                                placeholder = "Enter your url"
+                            />
+
+                            <select id="selectValue" value={formData.selectValue} onChange={handleSelectChange}>
+                                <option value="1">Phishing</option>
+                                <option value="0">Not-Phishing</option>
+                            </select>                        
+                                                        
+                            <button type = "submit">Submit</button>
+                        </form>
+
+                        {/* <p>{"thanks for submitting"}</p> */}
                     </CardContent>
                     <CardMedia
                     component="img"

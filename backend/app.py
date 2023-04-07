@@ -30,19 +30,25 @@ def setCache(key, value):
 @app.route("/data")
 def getLabel():
     url = session.get("url")
+    newURL = session.get("newURL")
+
     app.logger.info(url)
+    app.logger.info(newURL)
+
     if redisObj.exists(url) == 1:
         label = readCache(url)
     else:
         label = predict_label(url)
         app.logger.info(label)
         setCache(url, str(label))
+
     return {
         "Name": OutputInfo["name"], 
         "Age": OutputInfo["age"],
         "Date": OutputInfo["date"], 
         "programming": OutputInfo["programming"],
         "url": url,
+        "newURL": newURL,
         "label":str(label),
         }
 
@@ -56,10 +62,18 @@ def getUrls():
     session["url"] = url
     return jsonify({'url': url})
 
+@app.route("/submit-newURL", methods=['POST'])
+def getNewUrls():
+    data = request.get_json()
+    print(data, file=sys.stderr)
+    print(data["newURL"], file=sys.stderr)
+    newURL = data["newURL"]
+    return jsonify({'newURL': newURL})
+
 # Route for submitting the predicted lable is wrong
-@app.route('/submit_error', methods=['POST'])
-def submit_error():
-    return 'Error submitted'
+# @app.route('/submit_error', methods=['POST'])
+# def submit_error():
+#     return 'Error submitted'
 
 # Running app
 if __name__ == "__main__":

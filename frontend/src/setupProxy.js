@@ -15,4 +15,11 @@ module.exports = function(app) {
             changeOrigin: true,
         })
     );
+    app.use(
+        '/submit-newURL',
+        createProxyMiddleware({
+            target: 'http://0.0.0.0:5000',
+            changeOrigin: true,
+        })
+    );
 };
