@@ -43,7 +43,7 @@ def getLabel():
         "Date": OutputInfo["date"], 
         "programming": OutputInfo["programming"],
         "url": url,
-        "label":label,
+        "label":str(label),
         }
 
 # Route for receiving input from user
