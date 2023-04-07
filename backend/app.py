@@ -82,6 +82,7 @@ def getNewUrls():
     sql = 'INSERT INTO si699_userInput (url, label, date) VALUES (%s, %s, %s)'
     val = (newURL, label, x)
     mycursor.execute(sql, val)
+    mydb.commit()
 
     return jsonify({"message": "successfully inserted new url and label"})
 
