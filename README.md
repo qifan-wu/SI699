@@ -18,13 +18,13 @@ Network & Security -> Security Groups -> launch-wizard-1 -> inbound rules -> edi
 
 
 <h3> Packages Used </h3>
-**Install python env**
+<h4>Install python env</h4>
 
 wget https://bootstrap.pypa.io/get-pip.py
 python3 -m pip install pandas
 python3 -m pip install Flask
 
-**install packages**
+<h4>install packages</h4>
 python3 -m pip install pandas numpy Flask 
 python3 -m pip install -U scikit-learn
 python3 -m pip install nltk
@@ -37,7 +37,7 @@ sudo apt-get install redis
 python3 -m pip install redis
 nltk.download('wordnet')
 
-# Set mysql database
+<h4>Set mysql database</h4>
 sudo apt install mysql-server
 sudo systemctl start mysql.service
 sudo mysql -u root -p (No password)
@@ -49,7 +49,7 @@ GRANT ALL ON *.* TO ‘si699_remote’@‘%’;
 FLUSH PRIVILEGES;
 CREATE DATABASE si699_db;
 
-# install npm
+<h4>install npm</h4>
 sudo apt install npm
 (after git clone)
 cd frontend
