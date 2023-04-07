@@ -20,7 +20,22 @@ function FeaturedPost(props) {
         url:"",
         label:"",
     });
-    const handleClick = () => {
+    const [formData, setFormData] = useState({});
+
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ [name]: value });
+    };
+    const handleClick = (event) => {
+        event.preventDefault();
+        fetch('/submit-form', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+        })
+        .then((response) => {
+            response.json();
+        })
         fetch("/data")
         .then(res => res.json())
         .then(
@@ -35,7 +50,7 @@ function FeaturedPost(props) {
                 });
             },
         )
-    }
+    };
     return (
         <Grid item xs={12} md={6}>
             <CardActionArea component="a" href="#">
@@ -50,8 +65,16 @@ function FeaturedPost(props) {
                         <Typography variant="subtitle1" paragraph>
                             {post.description}
                         </Typography>
-                        <FormComponent/>
-                        <button onClick={handleClick}>Show Results</button>
+                        <form onSubmit={handleClick}>
+                            <input
+                                type = "text"
+                                name = "url"
+                                value = {formData.url || ''}
+                                onChange = {handleInputChange}
+                                placeholder = "Url"
+                            />
+                            <button type = "submit">Submit</button>
+                        </form>
                         <p>{pageData.label=="1"?"phishing":"not phishing"}</p>
                     </CardContent>
                     <CardMedia
