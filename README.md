@@ -1,15 +1,10 @@
-<h2> Instruction on installing environment </h2>
+<h2> Instruction on running this program </h2>
 git clone https://github.com/Dong34/SI699.git
 cd SI699
 
-**Install python env**
-wget https://bootstrap.pypa.io/get-pip.py
-python3 -m pip install pandas
-python3 -m pip install Flask
-
 cd backend
 
-sudo python3 app.py
+python3 app.py
 
 <h4> A new console </h4>
 
@@ -21,11 +16,42 @@ npm start
 Elastic Block Store -> Volumns -> Modify volume
 Network & Security -> Security Groups -> launch-wizard-1 -> inbound rules -> edit inboud rules -> Custom TCP
 
-<h2> Log into SQL </h2>
-mysql -u si699 -p
-//then input password
 
-sudo mysql
-CREATE USER 'si699_remote'@'%' IDENTIFIED BY 'SI699_password';
-GRANT ALL PRIVILEGES ON *.* TO 'si699_remote'@'%' WITH GRANT OPTION;
-FLUSH PRIVILEGES
+<h3> Packages Used </h3>
+**Install python env**
+
+wget https://bootstrap.pypa.io/get-pip.py
+python3 -m pip install pandas
+python3 -m pip install Flask
+
+**install packages**
+python3 -m pip install pandas numpy Flask 
+python3 -m pip install -U scikit-learn
+python3 -m pip install nltk
+python3 -m pip install seaborn
+python3 -m pip install matplotlib
+python3 -m pip install mysql-connector-python 
+
+sudo apt-get update
+sudo apt-get install redis
+python3 -m pip install redis
+nltk.download('wordnet')
+
+# Set mysql database
+sudo apt install mysql-server
+sudo systemctl start mysql.service
+sudo mysql -u root -p (No password)
+
+CREATE USER ‘si699’@‘localhost’ IDENTIFIED BY ‘SI699_password’;
+CREATE USER ‘si699_remote’@‘%’ IDENTIFIED BY ‘SI699_password’;
+GRANT ALL ON *.* TO ‘si699’@‘localhost’;
+GRANT ALL ON *.* TO ‘si699_remote’@‘%’;
+FLUSH PRIVILEGES;
+CREATE DATABASE si699_db;
+
+# install npm
+sudo apt install npm
+(after git clone)
+cd frontend
+npm install
+
