@@ -3,8 +3,17 @@ import datetime
 from predict_label import predict_label
 import sys
 import redis
+import mysql.connector
 
 x = datetime.datetime.now()
+
+mydb = mysql.connector.connect(
+    host = "localhost",
+    user = "si699",
+    password = "SI699_password",
+    database="si699_db",
+)
+mycursor = mydb.cursor()
 
 # Initializing flask app
 app = Flask(__name__)
@@ -65,10 +74,16 @@ def getUrls():
 @app.route("/submit-newURL", methods=['POST'])
 def getNewUrls():
     data = request.get_json()
-    print(data, file=sys.stderr)
-    print(data["newURL"], file=sys.stderr)
+    # print(data, file=sys.stderr)
+    # print(data["newURL"], file=sys.stderr)
     newURL = data["newURL"]
-    return jsonify({'newURL': newURL})
+    label = data["selectValue"]
+
+    sql = 'INSERT INTO si699_userInput (url, label, date) VALUES (%s, %s, %s)'
+    val = (newURL, label, x)
+    mycursor.execute(sql, val)
+
+    return jsonify({"message": "successfully inserted new url and label"})
 
 # Route for submitting the predicted lable is wrong
 # @app.route('/submit_error', methods=['POST'])
