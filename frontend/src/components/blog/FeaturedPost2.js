@@ -10,49 +10,47 @@ import { useState } from "react";
 import FormComponent from "./FormComponent";
 
 
-function FeaturedPost(props) {
+function FeaturedPost2(props) {
     const { post } = props;
-    const [pageData, setPageData] = useState({
-        name: "",
-        age: 0,
-        date: "",
-        programming: "",
-        url:"",
-        label:"",
+    const [formData, setFormData] = useState({
+        newURL: '',
+        selectValue: "1",
     });
-    const [formData, setFormData] = useState({});
+    // const [formData, setFormData] = useState({});
+    // const [selectValue, setSelectValue] = useState('');
     const [showPopup, setShowPopup] = useState(false);
 
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-        setFormData({ [name]: value });
+    const handleTextInputChange = (event) => {
+        setFormData({ ...formData, newURL: event.target.value });
+      };
+    
+    const handleSelectChange = (event) => {
+        setFormData({ ...formData, selectValue: event.target.value });
     };
+    
+
+    // const handleSelectChange=(event)=>{
+    //     const { name, value } = event.target;
+    //     setFormData({ [name]: value});
+    // };
+
     const handleClick = (event) => {
         event.preventDefault();
         setShowPopup(true);
-        fetch('/submit-form', {
+
+        console.log(formData);
+        fetch('/submit-newURL', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
+
         })
         .then((response) => {
             response.json();
         })
-        fetch("/data")
-        .then(res => res.json())
-        .then(
-            (data) => {
-                setPageData({
-                    name: data.Name,
-                    age: data.Age,
-                    date: data.Date,
-                    programming: data.programming,
-                    url: data.url,
-                    label: data.label,
-                });
-            },
-        )
     };
+
+    // console.log(selection);
     return (
         <Grid item xs={12} md={6}>
             <CardActionArea component="a" href="#">
@@ -67,21 +65,30 @@ function FeaturedPost(props) {
                         <Typography variant="subtitle1" paragraph>
                             {post.description}
                         </Typography>
+
                         <form onSubmit={handleClick}>
                             <input
                                 type = "text"
-                                name = "url"
-                                value = {formData.url || ''}
-                                onChange = {handleInputChange}
-                                placeholder = "Url"
+                                name = "newURL"
+                                value = {formData.newURL|| ''}
+                                onChange = {handleTextInputChange}
+                                placeholder = "Enter your url"
                             />
+
+                            <select id="selectValue" value={formData.selectValue} onChange={handleSelectChange}>
+                                <option value="1">Phishing</option>
+                                <option value="0">Not-Phishing</option>
+                            </select>                        
+                                                        
                             <button type = "submit">Submit</button>
                         </form>
                         {showPopup && (
                             <div className="popup">
-                            <p>{pageData.label=="1"?"phishing":"not phishing"}</p>
+                            <p>Thanks for submitting</p>
                             </div>
                         )}
+
+                        {/* <p>{"thanks for submitting"}</p> */}
                     </CardContent>
                     <CardMedia
                     component="img"
@@ -95,7 +102,7 @@ function FeaturedPost(props) {
     );
 }
 
-FeaturedPost.propTypes = {
+FeaturedPost2.propTypes = {
     post: PropTypes.shape({
     date: PropTypes.string,
     description: PropTypes.string.isRequired,
@@ -105,4 +112,4 @@ FeaturedPost.propTypes = {
     }).isRequired,
 };
 
-export default FeaturedPost;
+export default FeaturedPost2;

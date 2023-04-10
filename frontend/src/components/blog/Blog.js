@@ -9,6 +9,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Header from './Header';
 import MainFeaturedPost from './MainFeaturedPost';
 import FeaturedPost from './FeaturedPost';
+import FeaturedPost2 from './FeaturedPost2';
 import Main from './Main';
 import Sidebar from './Sidebar';
 import Footer from './Footer';
@@ -37,22 +38,22 @@ const mainFeaturedPost = {
 
 const featuredPosts = [
   {
-    title: 'Find out whether it is a phisihing website!',
-    date: 'Database Last Updated: Nov 12',
+    title: 'Find out whether it is a phishing website!',
+    date: 'Database Last Updated: April, 2023',
     description:
       'Please copy your url and click "submit".',
     image: 'https://source.unsplash.com/random',
     imageLabel: 'Image Text',
   },
   {
-    title: 'Post title',
-    date: 'Nov 11',
+    title: 'Add your result to improve our database',
     description:
-      'This is a wider card with supporting text below as a natural lead-in to additional content.',
+      'Please enter the url and its label here',
     image: 'https://source.unsplash.com/random',
     imageLabel: 'Image Text',
   },
 ];
+
 
 const sidebar = {
   title: 'About',
@@ -90,6 +91,7 @@ export default function Blog() {
           <MainFeaturedPost post={mainFeaturedPost} />
           <Grid container spacing={4}>
               <FeaturedPost post={featuredPosts[0]} />
+              <FeaturedPost2 post={featuredPosts[1]} />
           </Grid>
           
         </main>
