@@ -79,7 +79,7 @@ function FeaturedPost(props) {
                         </form>
                         {showPopup && (
                             <div className="popup">
-                            <p>{pageData.label=="1"?"phishing":"not phishing"}</p>
+                            <p>{pageData.label=="1"?"Phishing":"Not Phishing"}</p>
                             </div>
                         )}
                     </CardContent>
