@@ -39,7 +39,7 @@ const mainFeaturedPost = {
 const featuredPosts = [
   {
     title: 'Find out whether it is a phishing website!',
-    date: 'Database Last Updated: Nov 12',
+    date: 'Database Last Updated: April, 2023',
     description:
       'Please copy your url and click "submit".',
     image: 'https://source.unsplash.com/random',
