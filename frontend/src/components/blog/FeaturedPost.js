@@ -77,8 +77,6 @@ function FeaturedPost(props) {
                             />
                             <button type = "submit">Submit</button>
                         </form>
-                        {/* <p>{pageData.label=="1"?"phishing":"not phishing"}</p>
-                         */}
                         {showPopup && (
                             <div className="popup">
                             <p>{pageData.label=="1"?"phishing":"not phishing"}</p>
