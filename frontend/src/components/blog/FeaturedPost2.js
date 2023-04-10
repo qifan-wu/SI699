@@ -18,6 +18,7 @@ function FeaturedPost2(props) {
     });
     // const [formData, setFormData] = useState({});
     // const [selectValue, setSelectValue] = useState('');
+    const [showPopup, setShowPopup] = useState(false);
 
     const handleTextInputChange = (event) => {
         setFormData({ ...formData, newURL: event.target.value });
@@ -35,6 +36,8 @@ function FeaturedPost2(props) {
 
     const handleClick = (event) => {
         event.preventDefault();
+        setShowPopup(true);
+
         console.log(formData);
         fetch('/submit-newURL', {
             method: 'POST',
@@ -79,6 +82,11 @@ function FeaturedPost2(props) {
                                                         
                             <button type = "submit">Submit</button>
                         </form>
+                        {showPopup && (
+                            <div className="popup">
+                            <p>Thanks for submitting</p>
+                            </div>
+                        )}
 
                         {/* <p>{"thanks for submitting"}</p> */}
                     </CardContent>
