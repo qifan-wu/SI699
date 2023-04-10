@@ -1,5 +1,6 @@
 <h2> Instruction on running this program </h2>
 git clone https://github.com/Dong34/SI699.git
+
 cd SI699
 
 cd backend
@@ -17,7 +18,7 @@ Elastic Block Store -> Volumns -> Modify volume
 Network & Security -> Security Groups -> launch-wizard-1 -> inbound rules -> edit inboud rules -> Custom TCP
 
 
-<h2> To run this program on your own server, you need: </h2>
+<h3> To run this program on your own server, you need: </h3>
 
 <h4>Install python env</h4>
 
