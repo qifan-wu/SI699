@@ -17,7 +17,7 @@ Elastic Block Store -> Volumns -> Modify volume
 Network & Security -> Security Groups -> launch-wizard-1 -> inbound rules -> edit inboud rules -> Custom TCP
 
 
-<h3> Packages Used </h3>
+<h2> To run this program on your own server, you need: </h2>
 
 <h4>Install python env</h4>
 
