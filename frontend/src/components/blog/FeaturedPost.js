@@ -21,6 +21,7 @@ function FeaturedPost(props) {
         label:"",
     });
     const [formData, setFormData] = useState({});
+    const [showPopup, setShowPopup] = useState(false);
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -28,6 +29,7 @@ function FeaturedPost(props) {
     };
     const handleClick = (event) => {
         event.preventDefault();
+        setShowPopup(true);
         fetch('/submit-form', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -75,7 +77,13 @@ function FeaturedPost(props) {
                             />
                             <button type = "submit">Submit</button>
                         </form>
-                        <p>{pageData.label=="1"?"phishing":"not phishing"}</p>
+                        {/* <p>{pageData.label=="1"?"phishing":"not phishing"}</p>
+                         */}
+                        {showPopup && (
+                            <div className="popup">
+                            <p>{pageData.label=="1"?"phishing":"not phishing"}</p>
+                            </div>
+                        )}
                     </CardContent>
                     <CardMedia
                     component="img"
