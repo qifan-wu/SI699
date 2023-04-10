@@ -2,7 +2,9 @@
 git clone https://github.com/Dong34/SI699.git
 
 cd SI699
+
 cd backend
+
 python3 app.py
 
 <h4> A new console </h4>
