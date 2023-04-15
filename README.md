@@ -27,7 +27,7 @@ npm start
 
 Launch a EC2 instance (type: xlarge) at AWS
 
-<h4>Install python env:</h4>
+<h4>Install python env</h4>
 
 ```
 wget https://bootstrap.pypa.io/get-pip.py
