@@ -31,7 +31,7 @@ const mainFeaturedPost = {
   title: 'SI699 Proj',
   description:
     "We help you to find out phishing urls! ",
-  image: 'https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+  image: 'https://i.pinimg.com/originals/a0/3b/ba/a03bba9a25c4f7865e1dbee30716416f.jpg',
   imageText: 'main image description',
   //linkText: 'Continue reading…',
 };
@@ -42,14 +42,14 @@ const featuredPosts = [
     date: 'Database Last Updated: April, 2023',
     description:
       'Please copy your url and click "submit".',
-    image: 'https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: 'https://i.pinimg.com/originals/a0/3b/ba/a03bba9a25c4f7865e1dbee30716416f.jpg',
     imageLabel: 'Image Text',
   },
   {
     title: 'Add your result to improve our database',
     description:
       'Please enter the url and its label here',
-    image: 'https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    image: 'https://i.pinimg.com/originals/a0/3b/ba/a03bba9a25c4f7865e1dbee30716416f.jpg',
     imageLabel: 'Image Text',
   },
 ];
