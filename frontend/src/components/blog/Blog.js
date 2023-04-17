@@ -31,7 +31,7 @@ const mainFeaturedPost = {
   title: 'SI699 Proj',
   description:
     "We help you to find out phishing urls! ",
-  image: 'https://www.pexels.com/photo/landscape-photography-of-mountains-covered-in-snow-691668/',
+  image: 'https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
   imageText: 'main image description',
   //linkText: 'Continue reading…',
 };
@@ -42,14 +42,14 @@ const featuredPosts = [
     date: 'Database Last Updated: April, 2023',
     description:
       'Please copy your url and click "submit".',
-    image: 'https://www.pexels.com/photo/landscape-photography-of-mountains-covered-in-snow-691668/',
+    image: 'https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     imageLabel: 'Image Text',
   },
   {
     title: 'Add your result to improve our database',
     description:
       'Please enter the url and its label here',
-    image: 'https://www.pexels.com/photo/landscape-photography-of-mountains-covered-in-snow-691668/',
+    image: 'https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     imageLabel: 'Image Text',
   },
 ];
